@@ -60,12 +60,17 @@ function Landing() {
             visible ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <h1 className="text-xl font-medium tracking-[0.25em] lowercase mb-6 leading-loose text-center">
+          <h1 className="text-xl font-light tracking-[0.25em] lowercase mb-6 leading-loose text-center" style={{ fontFamily: 'Playfair Display, serif' }}>
             who was i
           </h1>
+          
+
+          <p className="text-base font-light opacity-60 leading-relaxed text-center">
+            only the words knew
+          </p>
 
           <p className="text-base font-light opacity-60 mb-4 leading-relaxed text-center">
-            It's just… there. Until it isn't.
+            untill they faded
           </p>
 
           <p className="text-lg font-medium opacity-40 mb-16 leading-relaxed text-center">
