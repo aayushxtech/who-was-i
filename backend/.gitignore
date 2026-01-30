@@ -1,0 +1,54 @@
+# ------------------------------
+# Python bytecode & caches
+# ------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ------------------------------
+# Virtual environments
+# ------------------------------
+.venv/
+venv/
+ENV/
+env/
+
+# ------------------------------
+# Python tooling
+# ------------------------------
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.cache/
+
+# ------------------------------
+# Build / packaging artifacts
+# ------------------------------
+build/
+dist/
+*.egg-info/
+
+# ------------------------------
+# IDE / Editor noise
+# ------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ------------------------------
+# OS-specific files
+# ------------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------------
+# Logs (no server logs should be committed)
+# ------------------------------
+*.log
+
+# ------------------------------
+# Environment & secrets
+# ------------------------------
+.env
+.env.*
