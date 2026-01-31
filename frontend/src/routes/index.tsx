@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import RoomAccessCard from '../components/RoomAccessCard'
 
 export const Route = createFileRoute('/')({
@@ -10,6 +10,7 @@ function Landing() {
   const [visible, setVisible] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
   const [showRoomModal, setShowRoomModal] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fadeIn = setTimeout(() => setVisible(true), 50)
@@ -21,15 +22,25 @@ function Landing() {
   }, [])
 
   const handleCreateRoom = (roomName: string, password: string) => {
-    // Handle room creation logic here
+    // Generate a simple room code from room name
+    const roomCode = roomName.toLowerCase().replace(/\s+/g, '-')
     console.log('Creating room:', roomName, password)
+    
+    // Store room info for demo purposes
+    sessionStorage.setItem(`room_${roomCode}`, JSON.stringify({ name: roomName, password }))
+    
     setShowRoomModal(false)
+    
+    // Navigate to the room
+    navigate({ to: '/room/$roomId', params: { roomId: roomCode } })
   }
 
   const handleJoinRoom = (roomCode: string, password: string) => {
-    // Handle room joining logic here
     console.log('Joining room:', roomCode, password)
+    
+    // For demo purposes, just navigate to the room
     setShowRoomModal(false)
+    navigate({ to: '/room/$roomId', params: { roomId: roomCode } })
   }
 
   const handleCloseModal = () => {
@@ -51,7 +62,7 @@ function Landing() {
         <div 
           className="absolute inset-0 pointer-events-none opacity-[0.02]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNose' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
           }}
         />
 
