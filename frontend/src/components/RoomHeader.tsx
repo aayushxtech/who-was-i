@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import SetDisplayName from './SetDisplayName'
 
 interface RoomHeaderProps {
@@ -32,9 +33,25 @@ function RoomHeader({ roomName }: RoomHeaderProps) {
   return (
     <>
       <header className="sticky top-0 z-10 flex items-center justify-between p-3 sm:p-6 border-b border-slate-700/50 bg-slate-800 backdrop-blur-sm">
-        <h1 className="text-base sm:text-lg font-semibold text-slate-100 lowercase truncate mr-3">
-          {roomName}
-        </h1>
+        <div className="flex items-center gap-3">
+          <Link
+            to="/"
+            className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-700/50 hover:bg-slate-700 transition-colors group"
+            aria-label="Go back to home"
+          >
+            <svg
+              className="w-4 h-4 text-slate-400 group-hover:text-slate-200 transition-colors"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </Link>
+          <h1 className="text-base sm:text-lg font-semibold text-slate-100 lowercase truncate">
+            {roomName}
+          </h1>
+        </div>
         
         <button
           onClick={handleSetDisplayName}
