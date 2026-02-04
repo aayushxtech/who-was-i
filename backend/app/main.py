@@ -6,6 +6,7 @@ from app.core.config import get_settings
 from app.core.db import check_database_connection
 from app.api.health import router as health_router
 from app.api.ready import router as ready_router
+from app.api.v1.rooms import router as rooms_router
 
 from app.state.connections import connections
 
@@ -42,6 +43,9 @@ def create_app() -> FastAPI:
     # REST routers
     app.include_router(health_router)
     app.include_router(ready_router)
+
+    # Versioned API router
+    app.include_router(rooms_router, prefix="/api")
     return app
 
 

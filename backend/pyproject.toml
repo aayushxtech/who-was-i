@@ -23,6 +23,7 @@ dependencies = [
 
   # Utilities
   "python-dotenv>=1.0",
+  "argon2-cffi>=21.3.0",
 ]
 
 [project.optional-dependencies]
@@ -44,3 +45,11 @@ ignore = ["E501"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["alembic*"]
