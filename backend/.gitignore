@@ -1,54 +1,84 @@
-# ------------------------------
-# Python bytecode & caches
-# ------------------------------
+# Byte-compiled / optimized
 __pycache__/
 *.py[cod]
 *$py.class
 
-# ------------------------------
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+who_was_i_backend.egg-info/
+bdist.linux-x86_64/
+lib/
+lib64/
+parts/
+sdist/
+*.egg
+*.egg-info
+
+# Installer / pip
+pip-log.txt
+pip-delete-this-directory.txt
+
 # Virtual environments
-# ------------------------------
-.venv/
+.env
+.venv
 venv/
 ENV/
 env/
+env.bak/
+venv.bak/
 
-# ------------------------------
-# Python tooling
-# ------------------------------
-.mypy_cache/
+# Testing / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
 .pytest_cache/
-.ruff_cache/
-.cache/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
 
-# ------------------------------
-# Build / packaging artifacts
-# ------------------------------
-build/
-dist/
-*.egg-info/
+# Mypy / type checks
+.mypy_cache/
 
-# ------------------------------
-# IDE / Editor noise
-# ------------------------------
-.vscode/
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter
+.ipynb_checkpoints
+
+# SQLite / local DBs
+*.sqlite3
+*.db
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# IDEs / editors
 .idea/
-*.swp
-*.swo
+.vscode/
+*.sublime-project
+*.sublime-workspace
 
-# ------------------------------
-# OS-specific files
-# ------------------------------
+# OS
 .DS_Store
 Thumbs.db
 
-# ------------------------------
-# Logs (no server logs should be committed)
-# ------------------------------
-*.log
-
-# ------------------------------
-# Environment & secrets
-# ------------------------------
-.env
-.env.*
+# Docker / env overrides
+docker-compose.override.yml
+*.local.env
