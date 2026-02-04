@@ -22,7 +22,7 @@ dependencies = [
   "pydantic-settings>=2.2",
 
   # Utilities
-  "python-dotenv>=1.0"
+  "python-dotenv>=1.0",
 ]
 
 [project.optional-dependencies]
