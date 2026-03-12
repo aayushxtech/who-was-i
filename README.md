@@ -119,3 +119,6 @@ Leave quietly.
 Nothing follows you out.
 
 That’s it.
+
+
+> Currently working on designing the architecture and keeping my life on track
