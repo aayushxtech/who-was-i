@@ -1,84 +1,94 @@
-# Byte-compiled / optimized
-__pycache__/
+# ----------------------------
+
+# Python
+
+# ----------------------------
+
+pycache/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
+*.pyd
+*.pyo
 
-# Distribution / packaging
-.Python
-build/
-dist/
-downloads/
-eggs/
-.eggs/
-*.egg-info/
-who_was_i_backend.egg-info/
-bdist.linux-x86_64/
-lib/
-lib64/
-parts/
-sdist/
-*.egg
-*.egg-info
+# ----------------------------
 
-# Installer / pip
-pip-log.txt
-pip-delete-this-directory.txt
+# Virtual Environments
 
-# Virtual environments
-.env
-.venv
+# ----------------------------
+
+.venv/
 venv/
-ENV/
 env/
-env.bak/
-venv.bak/
 
-# Testing / coverage
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.pytest_cache/
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
+# ----------------------------
 
-# Mypy / type checks
-.mypy_cache/
+# Environment Variables
 
-# PyInstaller
-*.manifest
-*.spec
+# ----------------------------
 
-# Jupyter
-.ipynb_checkpoints
+.env
+.env.*
+!.env.example
 
-# SQLite / local DBs
-*.sqlite3
-*.db
+# ----------------------------
+
+# Poetry
+
+# ----------------------------
+
+poetry.lock
+
+# ----------------------------
 
 # Logs
+
+# ----------------------------
+
 *.log
-logs/
-*.log.*
 
-# IDEs / editors
-.idea/
+# ----------------------------
+
+# Testing / Coverage
+
+# ----------------------------
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ----------------------------
+
+# Alembic
+
+# ----------------------------
+
+alembic/versions/*.pyc
+
+# ----------------------------
+
+# IDE / Editors
+
+# ----------------------------
+
 .vscode/
-*.sublime-project
-*.sublime-workspace
+.idea/
+*.swp
+*.swo
 
-# OS
+# ----------------------------
+
+# OS Files
+
+# ----------------------------
+
 .DS_Store
 Thumbs.db
 
-# Docker / env overrides
-docker-compose.override.yml
-*.local.env
+----------------------------
+
+Docker
+
+----------------------------
+
+*.pid
