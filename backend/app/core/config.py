@@ -1,7 +1,12 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 class Settings(BaseSettings):
+
     APP_ENV: str = "development"
     API_V1_PREFIX: str = "/api/v1"
 
@@ -16,9 +21,10 @@ class Settings(BaseSettings):
 
     SECRET_KEY: str
 
-
-class Config:
-    env_file = ".env"
+    model_config = SettingsConfigDict(
+        env_file=BASE_DIR / ".env",
+        extra="ignore"
+    )
 
 
 settings = Settings()
