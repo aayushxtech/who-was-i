@@ -10,33 +10,18 @@ from .base import Base
 class SecurityEvent(Base):
     __tablename__ = "security_events"
 
-    id: Mapped[int] = mapped_column(
-        BigInteger,
-        primary_key=True,
-        autoincrement=True
-    )
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
 
-    ip_address: Mapped[str | None] = mapped_column(
-        INET
-    )
+    ip_address: Mapped[str | None] = mapped_column(INET)
 
-    event_type: Mapped[str] = mapped_column(
-        String(64),
-        nullable=False
-    )
+    event_type: Mapped[str] = mapped_column(String(64), nullable=False)
 
-    severity: Mapped[str] = mapped_column(
-        String(32),
-        nullable=False
-    )
+    severity: Mapped[str] = mapped_column(String(32), nullable=False)
 
-    event_metadata: Mapped[dict | None] = mapped_column(
-        JSONB
-    )
+    event_metadata: Mapped[dict | None] = mapped_column(JSONB)
 
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True),
-        server_default=func.now()
+        DateTime(timezone=True), server_default=func.now()
     )
 
 

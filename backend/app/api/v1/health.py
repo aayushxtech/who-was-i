@@ -7,22 +7,20 @@ router = APIRouter()
 
 
 @router.get("/health")
-async def health_check():
+def health_check():
     return {"status": "ok"}
 
 
 @router.get("/health/redis")
-async def redis_test():
-    await redis_client.set("test_key", "redis_working")
-    value = await redis_client.get("test_key")
-
+def redis_test():
+    redis_client.set("test_key", "redis_working")
+    value = redis_client.get("test_key")
     return {"redis_value": value}
 
 
 @router.get("/health/db")
-async def db_test():
-    async with engine.connect() as conn:
-        result = await conn.execute(text("SELECT 1"))
+def db_test():
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT 1"))
         value = result.scalar()
-
     return {"db": value}
