@@ -20,3 +20,11 @@ class JoinRoomResponse(BaseModel):
     session_id: str
     room_id: str
     display_name: str
+
+
+class LeaveRoomRequest(BaseModel):
+    session_id: str
+
+
+class LeaveRoomResponse(BaseModel):
+    success: bool

@@ -13,7 +13,7 @@ def join_room(redis: Redis, db, room_code: str, password: str, display_name: str
 
     session_id = str(uuid.uuid4())
     session_key = f"{SESSION_PREFIX}{session_id}"
-    members_key = f"{ROOM_MEMBERS_PREFIX}{room.id}: members"
+    members_key = f"{ROOM_MEMBERS_PREFIX}{room.id}:members"
 
     joined_at = int(time.time())
 

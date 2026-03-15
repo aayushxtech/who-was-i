@@ -11,13 +11,15 @@ from app.services.room.room_service import (
     InvalidRoomPasswordError,
     RoomJoinError,
 )
-
+from app.services.session.session_service import leave_room
 from app.services.room.join_service import join_room
 from app.api.v1.schema.room import (
     CreateRoomRequest,
     CreateRoomResponse,
     JoinRoomRequest,
     JoinRoomResponse,
+    LeaveRoomRequest,
+    LeaveRoomResponse
 )
 
 router = APIRouter(prefix="/rooms", tags=["rooms"])
@@ -56,3 +58,13 @@ def join_room_endpoint(
         raise HTTPException(status_code=403, detail=str(exc)) from exc
     except RoomJoinError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@router.post("/leave", response_model=LeaveRoomResponse)
+def leave_room_endpoint(
+    payload: LeaveRoomRequest,
+    redis: Redis = Depends(get_redis),
+):
+    leave_room(redis, payload.session_id)
+
+    return LeaveRoomResponse(success=True)
