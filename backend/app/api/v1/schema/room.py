@@ -13,7 +13,7 @@ class CreateRoomResponse(BaseModel):
 class JoinRoomRequest(BaseModel):
     room_code: str
     password: str
-    display_name: str
+    display_name: str | None
 
 
 class JoinRoomResponse(BaseModel):
